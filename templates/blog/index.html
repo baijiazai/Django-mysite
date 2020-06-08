@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}来一句{% endblock %}</title>
+    {% load staticfiles %}
+    <link rel="stylesheet" href="{% static 'blog/css/common.css' %}">
+    {% block style %}
+
+    {% endblock %}
+</head>
+<body>
+<!-- 导航栏 begin -->
+<hr>
+<a href="{% url 'blog:index' %}" {% if request.session.page == 'index' %}class="bold"{% endif %}>首页</a>
+<a href="#" {% if request.session.page == 'text' %}class="bold"{% endif %}>话题区</a>
+<a href="#" {% if request.session.page == 'image' %}class="bold"{% endif %}>图片区</a>
+<a href="#" {% if request.session.page == 'audio' %}class="bold"{% endif %}>音频区</a>
+<a href="#" {% if request.session.page == 'person' %}class="bold"{% endif %}>个人中心</a>
+{% if request.session.username %}
+    <a href="#">退出登录</a>
+{% else %}
+    <a href="#">登录</a>
+{% endif %}
+<form class="float-right">
+    <input type="text" name="keyword" placeholder="搜索">
+    <input type="submit" value="搜索">
+</form>
+<hr>
+<!-- 导航栏 end -->
+
+{% block content %}
+    <main class="text-center">
+        {% if request.session.username %}
+            <h1>欢迎{{ request.session.username }}，来到来一句博客</h1>
+        {% else %}
+            <h1>来一句博客</h1>
+        {% endif %}
+        <p>读万卷书不如行万里路<br>行万里路不如名师指路<br>名师指路不如自己领悟</p>
+    </main>
+{% endblock %}
+
+
+<!-- 页脚 begin -->
+<hr>
+<footer>
+    <p class="float-right"><a href="#">回到顶部</a></p>
+    <p class="float-left">&copy; 2020-<span id="nowYear"></span> __author__: baijiazai &middot; <a
+            href="https://github.com/baijiazai/Django-mysite">github</a> &middot; <a href="#">协议</a></p>
+    <script>document.getElementById('nowYear').innerText = new Date().getFullYear();</script>
+</footer>
+<!-- 页脚 end -->
+
+{% block script %}
+
+{% endblock %}
+</body>
+</html>
