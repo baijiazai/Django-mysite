@@ -18,9 +18,9 @@
 <a href="#" {% if request.session.page == 'audio' %}class="bold"{% endif %}>音频区</a>
 <a href="#" {% if request.session.page == 'person' %}class="bold"{% endif %}>个人中心</a>
 {% if request.session.username %}
-    <a href="#">退出登录</a>
+    <a href="{% url 'blog:logout' %}">退出登录</a>
 {% else %}
-    <a href="#">登录</a>
+    <a href="{% url 'blog:login' %}">登录</a>
 {% endif %}
 <form class="float-right">
     <input type="text" name="keyword" placeholder="搜索">
@@ -31,7 +31,7 @@
 
 {% block content %}
     <main class="text-center">
-        {% if request.session.username %}
+        {% if request.session.nickname %}
             <h1>欢迎{{ request.session.username }}，来到来一句博客</h1>
         {% else %}
             <h1>来一句博客</h1>

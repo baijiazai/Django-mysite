@@ -9,9 +9,9 @@ BIG_CLASS_LIST = [
 
 # 用户表
 class User(models.Model):
-    username = models.CharField(verbose_name='用户名', max_length=20)
+    username = models.CharField(verbose_name='用户名', max_length=32, unique=True)
     password = models.CharField(verbose_name='密码', max_length=256)
-    email = models.EmailField(verbose_name='邮箱', max_length=254)
+    email = models.EmailField(verbose_name='邮箱', max_length=254, unique=True)
     status = models.BooleanField(verbose_name='状态', default=False)
     active = models.BooleanField(verbose_name='激活', default=False)
 

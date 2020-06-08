@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="db.sqlite3" uuid="bf42203c-4a70-4ecb-8100-536d28b9e9bf">
-      <driver-ref>sqlite.xerial</driver-ref>
+    <data-source source="LOCAL" name="mysite@localhost" uuid="7327f1c9-ce6b-4f0c-8d0d-455b6d431f50">
+      <driver-ref>mysql.8</driver-ref>
       <synchronize>true</synchronize>
-      <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
-      <jdbc-url>jdbc:sqlite:$PROJECT_DIR$/db.sqlite3</jdbc-url>
+      <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://localhost:3306/mysite</jdbc-url>
     </data-source>
   </component>
 </project>
